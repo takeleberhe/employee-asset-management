@@ -7,8 +7,7 @@ import java.util.List;
 
 public interface AssetRepository extends JpaRepository<Asset ,Long> {
 
-     // custom asset operations
-     // List<Asset> FindByType(String type);
-      // List <Asset> FindByEmployeeId(Long EmployeeId);
+         List<Asset> FindByType(String type);
+         List <Asset> FindByEmployeeId(Long EmployeeId);
 
 }

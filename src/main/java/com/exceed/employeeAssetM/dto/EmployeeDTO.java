@@ -12,9 +12,10 @@ public class EmployeeDTO {
 
     private String name;
     private String email;
-
     private Long departmentId;
 
-    private List<String> assetNames; // Just names for simplicity
+    private List<AssetDTO> assets;
+
+    private List<String> assetNames;
 }
 

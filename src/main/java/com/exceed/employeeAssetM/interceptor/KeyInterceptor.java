@@ -14,7 +14,7 @@ public class KeyInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String key=request.getHeader(Header_API_Key);
         if(Expected_API_Key.equals(key)){
-            return true;
+            return true; // allow request
         }else {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.getWriter().write("invalid api key");

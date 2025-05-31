@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface DepartmentRepository extends JpaRepository<Department,Long> {
 
-         // custom crud methods find by department name
-         //List<Department> findByDepName(String deptName);
+         List<Department> findByDepName(String deptName);
 
 }

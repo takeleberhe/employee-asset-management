@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface EmplRepository extends JpaRepository<Employee, Long> {
-    // For request param filters
-     // List<Employee> findByName(String name);
-    //  List<Employee> findByEmail(String email);
-     //  List<Employee> findByDepartmentId(Long departmentId);
+        // For request param filters
+      List<Employee> findByName(String name);
+      List<Employee> findByEmail(String email);
+      List<Employee> findByDepartmentId(Long departmentId);
 
-    // Multiple filters combined (auto query generator)
-       //  List<Employee> findByNameAndEmail(String name, String email);
+         // Multiple filters combined
+       List<Employee> findByNameAndEmail(String name, String email);
 }
 

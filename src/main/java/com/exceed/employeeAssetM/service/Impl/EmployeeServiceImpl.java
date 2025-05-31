@@ -13,14 +13,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-
 @Slf4j
 @Service
 public class EmployeeServiceImpl  implements EmployeeService {
 
     private final EmplRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
-
 
     @Override
     public EmployeeDTO createEmployee(EmployeeDTO dto) {
@@ -29,21 +27,18 @@ public class EmployeeServiceImpl  implements EmployeeService {
         return employeeMapper.toDto(employee);
     }
 
-
     @Override
     public EmployeeDTO getEmployeeById(Long id) {
         return employeeRepository.findById(id)
                 .map(employeeMapper::toDto)
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
-
     @Override
     public List<EmployeeDTO> getEmployeeByDepartment(Long deptId) {
         return employeeRepository.findAll().stream()
                 .filter(emp->emp.getDepartment().getId().equals(deptId))
                 .map(employeeMapper::toDto).collect(Collectors.toList());
     }
-
 
     @Override
     public List<EmployeeDTO> searchEmployees(String name, String email) {

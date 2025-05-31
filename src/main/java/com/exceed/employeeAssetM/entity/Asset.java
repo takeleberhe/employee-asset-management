@@ -18,4 +18,9 @@ public class Asset {
     @NotBlank(message = "Asset name must not be blank")
     @Column(nullable = false)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
 }

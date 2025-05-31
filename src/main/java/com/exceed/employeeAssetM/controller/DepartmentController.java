@@ -18,7 +18,6 @@ public class DepartmentController {
         return ResponseEntity.ok(service.createDepartment(dto));
 
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<DepartmentDTO> findById(@PathVariable Long id){
         return ResponseEntity.ok(service.getDepartmentById(id));

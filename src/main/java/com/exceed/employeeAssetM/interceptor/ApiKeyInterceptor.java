@@ -1,6 +1,5 @@
 package com.exceed.employeeAssetM.interceptor;
 
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
@@ -10,7 +9,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class ApiKeyInterceptor implements HandlerInterceptor {
 
     private static final String API_KEY_HEADER = "X-API-KEY";
-    private static final String EXPECTED_API_KEY = "12345678"; // Ideally load from application.properties
+    private static final String EXPECTED_API_KEY = "12345678";
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j // Enables logging with "log.info", "log.error", etc.
+@Slf4j // logger
 public class DepartmentServiceImpl implements DepartmentService {
 
     private final DepartmentRepository repository;
@@ -23,10 +23,10 @@ public class DepartmentServiceImpl implements DepartmentService {
         try {
             Department department = mapper.toEntity(dto);
             Department saved = repository.save(department);
-            log.info("✅ Department created with ID: {}", saved.getId());
+            log.info("Department created with ID: {}", saved.getId());
             return mapper.toDto(saved);
         } catch (Exception e) {
-            log.error("❌ Failed to create department: {}", e.getMessage(), e);
+            log.error(" Failed to create department: {}", e.getMessage(), e);
             throw new RuntimeException("Unable to create department. Please try again later.");
         }
     }
@@ -37,13 +37,13 @@ public class DepartmentServiceImpl implements DepartmentService {
             return repository.findById(id)
                     .map(mapper::toDto)
                     .orElseThrow(() -> {
-                        log.warn("⚠️ Department not found with ID: {}", id);
+                        log.warn(" Department not found with ID: {}", id);
                         return new DepartmentNotFoundException("Department not found with ID: " + id);
                     });
         } catch (DepartmentNotFoundException e) {
-            throw e; // Let it bubble up to be handled by @ControllerAdvice
+            throw e;
         } catch (Exception e) {
-            log.error("❌ Error fetching department with ID: {}", id, e);
+            log.error(" Error fetching department with ID: {}", id, e);
             throw new RuntimeException("Unable to fetch department. Please try again later.");
         }
     }

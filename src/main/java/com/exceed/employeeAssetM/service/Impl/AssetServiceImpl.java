@@ -15,13 +15,11 @@ public class AssetServiceImpl implements AssetService {
     private final AssetRepository repository;
     private final AssetMapper mapper;
 
-
     @Override
     public AssetDTO createAsset(AssetDTO dto) {
         Asset asset =mapper.toEntity(dto);
         return mapper.toDto(asset);
     }
-
 
     @Override
     public AssetDTO findAssetById(Long id) {

@@ -31,7 +31,7 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
-    @OneToMany(cascade = CascadeType.ALL ,orphanRemoval = true)
-    @JoinColumn(name = "employee_id") // Creates FK in Asset table
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Asset> assets;
+
 }
