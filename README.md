@@ -38,7 +38,7 @@ java-dotenv (io.github.cdimascio:java-dotenv) for reading .env
 
 bash
 
-git clone https://github.com/your-username/employee-asset-management.git
+git clone https://github.com/takeleberhe/employee-asset-management.git
 
 cd employee-asset-management
 
